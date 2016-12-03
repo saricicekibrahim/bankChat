@@ -1,78 +1,142 @@
     <html>
     <head>
-        <title>Bank Chat</title>
-        <meta charset="utf-8">
-        <meta content="width=device-width, maximum-scale=1.0" name="viewport">
-        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="custom.css" rel="stylesheet">
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="bower_components/angular/angular.min.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <title>Bank Chat</title>
+      <meta charset="utf-8">
+      <meta content="width=device-width, maximum-scale=1.0" name="viewport">
+      <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="custom.css" rel="stylesheet">
+      <script src="bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="bower_components/angular/angular.min.js"></script>
+      <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="bower_components/typeahead.js/dist/typeahead.bundle.min.js"></script>
     </head>
 
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Tüm Sorular</h4>
+        </div>
+        <div class="modal-body">
+<div ng-app="app" ng-controller="mainCtrl">
+    <div>Sorunuzu Giriniz: <input type="text" ng-model="filters.search"></div>
+
+       <div class="row" ng-repeat="arr in array | filter:filters.search">
+       <div class="col-sm-1"></div>
+           <div class="col-sm-7" style="margin-top: 30px;">
+           
+           <a href="#"><span ng-bind="arr.name"></span></a>
+           </div>
+
+                   <div class="col-sm-4 embed-responsive" style="height:80px;width:100px;">
+          <video autoplay loop class="embed-responsive-item">
+            <source ng-src="{{arr.video}}" type="video/mp4">
+            </video>
+          </div>
+       </div>
+
+</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
     <div class="jumbotron text-center">
-        <h1>İşChat</h1>
-        <p>Nasıl Yardımcı Olurum?</p>
+      <h1>İşChat</h1>
+      <p>Nasıl Yardımcı Olurum?</p>
     </div>
 
     <div class="row constantHeight">
-      
-        <div class="col-xs-3"></div>
 
-        <div class="col-xs-6" id="hedo">
+      <div class="col-xs-3"></div>
 
-                <div class="arrow_box">kredi kartı!</div>
-                <br>
-                <div class="arrow_box_left">4440 999 arayın</div>
-                 <br>
-                <div class="arrow_box">Awesome.</div>
-                 <br>
-                                <div class="arrow_box">Hello there!</div>
-                                 <br>
-                <div class="arrow_box_left">Hi. I'm an expandeable chat box with box shadow. How are you? I expand horizontally and vertically, as you can see here.</div>
-                 <br>
-                <div class="arrow_box">Awesome.</div>
+      <div class="col-xs-6" id="hedo">
 
-                <div class="arrow_box_left embed-responsive embed-responsive-16by9">
-                    <video autoplay loop class="embed-responsive-item">
-                    <source src="kredi.mp4" type="video/mp4">
-                    </video>
-                </div>
+        <div class="arrow_box">kredi kartı!</div>
+        <br>
+        <div class="arrow_box_left">4440 999 arayın</div>
+        <br>
+        <div class="arrow_box">Awesome.</div>
+        <br>
+        <div class="arrow_box">Hello there!</div>
+        <br>
+        <div class="arrow_box_left">Hi. I'm an expandeable chat box with box shadow. How are you? I expand horizontally and vertically, as you can see here.</div>
+        <br>
+        <div class="arrow_box">Awesome.</div>
 
+        <div class="arrow_box_left embed-responsive embed-responsive-16by9">
+          <video autoplay loop class="embed-responsive-item">
+            <source src="kredi.mp4" type="video/mp4">
+            </video>
+          </div>
 
         </div>
-       
+
         <div class="col-xs-3"></div>
-    </div>
-
-    <div class="row footer navbar-fixed-bottom">
-
-      <div class="col-xs-2"></div>
-    
-      <div class="col-xs-8">
-        <div class="input-group">
-          <input type="text" class="form-control" ng-model="search" id="askIt">
-          <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button" id="askItBtn">Sor!</button>
-        </span>
       </div>
-    
-      <div class="col-xs-2"></div>
-    
-    </div>
-    <script type="text/javascript">
 
-        $("#askItBtn").click(function() {
+      <div class="row footer navbar-fixed-bottom">
 
-        $("#hedo").append("<div class='arrow_box'>" + $("#askIt")[0].value + "</div>");
-$('html, body').scrollTop( $(document).height() );
-        setTimeout(
-  function() 
-  {
-    $("#hedo").append("<div class='arrow_box_left'>" + $("#askIt")[0].value + " ney lan?" + "</div>");
-    $('html, body').scrollTop( $(document).height() );
-  }, 1500);
+        <div class="col-xs-5"></div>
+
+        <div class="col-xs-2">
+   
+          <div class="input-group" id="the-basics">
+            
+                <button type="button" class="btn btn-info" id="myBtn">Bir Sorunuz Mu Var?</button>
+
+          </div>
+
+          <div class="col-xs-5"></div>
+
+        </div>
+
+        <script type="text/javascript">
+
+          $("#askItBtn").click(function() {
+
+            $("#hedo").append("<div class='arrow_box'>" + $("#askIt")[0].value + "</div>");
+            $('html, body').scrollTop( $(document).height() );
+            setTimeout(
+              function() 
+              {
+                $("#hedo").append("<div class='arrow_box_left'>" + $("#askIt")[0].value + " ney lan?" + "</div>");
+                $('html, body').scrollTop( $(document).height() );
+              }, 1500);
+          });
+
+
+$("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+
+var app = angular.module('app', []);
+app.controller('mainCtrl', function($scope) {
+    $scope.filters = {
+        company: '',
+        search: ''
+    };
+    
+    $scope.array = [
+    {name: 'Kredi kartımı kaybedersem ne olur?', video: '1.mp4'},
+    {name: 'Bankamatikte kalan paramın iadesi için ne yapmalıyım?', video: '1.mp4'},
+    {name: 'Kartım bankamatikte sıkışırsa ne yapabilirim?', video: 'kredi.mp4'},
+    {name: 'Kartımın manyetik şeridi /çipi bozuldu? Ne yapmalıyım?', video: '1.mp4'},
+    {name: 'İnternet şubesinden kredimi nasıl ödeyebilirim?', video: '1.mp4'},
+    {name: 'Bankamatikte işlem yaparken elektrik kesintisi/sistem arızası oldu. Ne yapmalıyım?', video: '1.mp4'},
+    {name: 'Bankamatik kartıyla bankamatikten bir gün içinde en fazla kaç TL çekilebilir?', video: '1.mp4'},
+    {name: 'İnternet bankacılığı işlemlerimin dekontunu nasıl temin edebilirim?', video: '1.mp4'},
+    {name: 'Herkes ihtiyaç kredisi alabilir mi?', video: '1.mp4'},
+    {name: 'Bankamatiklerden bankamatik kartımı kullanarak diğer hesaplarımdan da para çekebilir miyim?', video: '1.mp4'}
+  ];
 });
-    </script>
+</script>
 
-    </html>
+</html>
