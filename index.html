@@ -1,0 +1,78 @@
+    <html>
+    <head>
+        <title>Bank Chat</title>
+        <meta charset="utf-8">
+        <meta content="width=device-width, maximum-scale=1.0" name="viewport">
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="custom.css" rel="stylesheet">
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    </head>
+
+    <div class="jumbotron text-center">
+        <h1>İşChat</h1>
+        <p>Nasıl Yardımcı Olurum?</p>
+    </div>
+
+    <div class="row constantHeight">
+      
+        <div class="col-xs-3"></div>
+
+        <div class="col-xs-6" id="hedo">
+
+                <div class="arrow_box">kredi kartı!</div>
+                <br>
+                <div class="arrow_box_left">4440 999 arayın</div>
+                 <br>
+                <div class="arrow_box">Awesome.</div>
+                 <br>
+                                <div class="arrow_box">Hello there!</div>
+                                 <br>
+                <div class="arrow_box_left">Hi. I'm an expandeable chat box with box shadow. How are you? I expand horizontally and vertically, as you can see here.</div>
+                 <br>
+                <div class="arrow_box">Awesome.</div>
+
+                <div class="arrow_box_left embed-responsive embed-responsive-16by9">
+                    <video autoplay loop class="embed-responsive-item">
+                    <source src="kredi.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+
+        </div>
+       
+        <div class="col-xs-3"></div>
+    </div>
+
+    <div class="row footer navbar-fixed-bottom">
+
+      <div class="col-xs-2"></div>
+    
+      <div class="col-xs-8">
+        <div class="input-group">
+          <input type="text" class="form-control" ng-model="search" id="askIt">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button" id="askItBtn">Sor!</button>
+        </span>
+      </div>
+    
+      <div class="col-xs-2"></div>
+    
+    </div>
+    <script type="text/javascript">
+
+        $("#askItBtn").click(function() {
+
+        $("#hedo").append("<div class='arrow_box'>" + $("#askIt")[0].value + "</div>");
+$('html, body').scrollTop( $(document).height() );
+        setTimeout(
+  function() 
+  {
+    $("#hedo").append("<div class='arrow_box_left'>" + $("#askIt")[0].value + " ney lan?" + "</div>");
+    $('html, body').scrollTop( $(document).height() );
+  }, 1500);
+});
+    </script>
+
+    </html>
