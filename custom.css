@@ -1,14 +1,15 @@
 .twitter-typeahead{ float:left; width:100%}
 
 .arrow_box {
+    -webkit-border-radius: 26px 20px 20px 20px;-moz-border-radius: 26px 20px 20px 20px;border-radius: 26px 20px 20px 20px;
     position: relative;
-    background: #337ab7;
+    background: #fc9d19;
     border: 1px solid #c2e1f5;
     width: 500px;
     padding-left: 10px;
     float: left;
     margin: 5px 0 5px 0;
-    color: #ddf8c6;
+    color: white;
     font-size: 22px;
     font-weight: bold;
     text-align: left;
@@ -27,26 +28,26 @@
 
 .arrow_box:after {
     border-color: rgba(136, 183, 213, 0);
-    border-right-color: #337ab7;
+    border-right-color: #fc9d19;
     border-width: 5px;
     margin-top: -5px;
 }
 .arrow_box:before {
     border-color: rgba(194, 225, 245, 0);
-    border-right-color: #337ab7;
+    border-right-color: #fc9d19;
     border-width: 8px;
     margin-top: -8px;
 }
 
 .arrow_box_left {
+    -webkit-border-radius: 26px 20px 20px 20px;-moz-border-radius: 26px 20px 20px 20px;border-radius: 26px 20px 20px 20px;
     position: relative;
-    background: #F96868;
+    background: #0C3E8E;
     border: 2px solid #c2e1f5;
     width:500px;
     float: right;
     margin: 5px 0 5px 0;         
-
-    color: #ddf8c6;
+    color: white;
     font-size: 22px;
     font-weight: bold;
     text-align: right;
@@ -67,13 +68,13 @@
 
 .arrow_box_left:after {
     border-color: rgba(213, 4, 53, 0);
-    border-left-color: #F96868;
+    border-left-color: #0C3E8E;
     border-width: 5px;
     margin-top: -5px;
 }
 .arrow_box_left:before {
     border-color: rgba(194, 225, 245, 0);
-    border-left-color: #F96868;
+    border-left-color: #0C3E8E;
     border-width: 8px;
     margin-top: -8px;
 }
