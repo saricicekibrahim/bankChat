@@ -1,143 +1,133 @@
-    <html>
-    <head>
-      <title>Bank Chat</title>
-      <meta charset="utf-8">
-      <meta content="width=device-width, maximum-scale=1.0" name="viewport">
-      <link rel="shortcut icon" href="http://www.isbank.com.tr/TR/_layouts/ISB_DA/ISB_Master_Assets/Images/favicon.ico" type="image/vnd.microsoft.icon" />
-      <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-      <link href="custom.css" rel="stylesheet">
-      <script src="bower_components/jquery/dist/jquery.min.js"></script>
-      <script src="bower_components/angular/angular.min.js"></script>
-      <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    </head>
+	    <html>
+	    <head>
+	    	<title>Bank Chat</title>
+	    	<meta charset="utf-8">
+	    	<meta content="width=device-width, maximum-scale=1.0" name="viewport">
+	    	<link rel="shortcut icon" href="http://www.isbank.com.tr/TR/_layouts/ISB_DA/ISB_Master_Assets/Images/favicon.ico" type="image/vnd.microsoft.icon" />
+	    	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	    	<link href="custom.css" rel="stylesheet">
+	    	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	    	<script src="bower_components/angular/angular.min.js"></script>
+	    	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	    </head>
 
-    <div ng-app="modalApp" class="modal fade" id="myModal" role="dialog">
-      <div class="modal-dialog">
+	    <div ng-app="modalApp" class="modal fade" id="myModal" role="dialog">
+	    	<div class="modal-dialog">
 
-        <!-- Modal content-->
-        <div class="modal-content" ng-controller="modalCtrl">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Sıkça Sorulan Sorular</h4>
-          </div>
-          <div class="modal-body input-group">
-            <div>
-              Sorunuzu Arayınız : <input type="text" ng-model="filters.search">
-              <!-- <button type="button" class="btn btn-info" >Sor</button> -->
-              <br>
-              <div class="row" ng-repeat="arr in array | filter:filters.search">
-               <div class="col-sm-1"></div>
-               <div class="col-sm-7" style="margin-top: 30px;">
-                 <a ng-click="hede(arr.qT)"><span ng-bind="arr.qT"></span></a>
-               </div>
+	    		<!-- Modal content-->
+	    		<div class="modal-content" ng-controller="modalCtrl">
+	    			<div class="modal-header">
+	    				<button type="button" class="close" data-dismiss="modal">&times;</button>
+	    				<h4 class="modal-title">Sıkça Sorulan Sorular</h4>
+	    			</div>
+	    			<div class="modal-body input-group">
+	    				<div>
+	    					Sorunuzu Arayınız : <input type="text" ng-model="filters.search">
+	    					<!-- <button type="button" class="btn btn-info" >Sor</button> -->
+	    					<br>
+	    					<div class="row" ng-repeat="arr in array | filter:filters.search">
+	    						<div class="col-sm-1"></div>
+	    						<div class="col-sm-7" style="margin-top: 30px;">
+	    							<a ng-click="hede(arr.qT)"><span ng-bind="arr.qT"></span></a>
+	    						</div>
 
-               <div class="col-sm-4 embed-responsive" style="height:120px;width:160px;">
-                <video autoplay loop class="embed-responsive-item">
-                  <source ng-src="{{arr.qV}}" type="video/mp4">
-                  </video>
-                </div>
-              </div>
+	    						<div class="col-sm-4 embed-responsive" style="height:120px;width:160px;">
+	    							<video autoplay loop class="embed-responsive-item">
+	    								<source ng-src="{{arr.qV}}" type="video/mp4">
+	    								</video>
+	    							</div>
+	    						</div>
 
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
+	    					</div>
+	    				</div>
+	    				<div class="modal-footer">
+	    					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	    				</div>
+	    			</div>
 
-      </div>
-    </div>
+	    		</div>
+	    	</div>
 
-    <div class="jumbotron text-center">
-      <h1>İşChat</h1>
-      <p>İnteraktif Yardım Hattı</p>
-    </div>
+	    	<div class="jumbotron text-center">
+	    		<h1>İşChat</h1>
+	    		<p>İnteraktif Yardım Hattı</p>
+	    	</div>
 
-    <div class="row constantHeight">
+	    	<div class="row constantHeight">
 
-      <div class="col-xs-3"></div>
+	    		<div class="col-xs-3"></div>
 
-      <div class="col-xs-6" id="chatPanel">
+	    		<div class="col-xs-6" id="chatPanel">
 
-        <div class="arrow_box_left">Merhaba! Nasıl yardımcı olabilirim?</div>
-        <br>
+	    			<div class="arrow_box_left">Merhaba! Nasıl yardımcı olabilirim?</div>
+	    			<br>
 
-<!--         <div class="arrow_box_left embed-responsive" style="height:160px;width:200px;">
-          <video autoplay loop class="embed-responsive-item">
-            <source src="videos/1.mp4" type="video/mp4">
-            </video>
-          </div> -->
+	    		</div>
 
-        </div>
+	    		<div class="col-xs-3"></div>
+	    	</div>
 
-        <div class="col-xs-3"></div>
-      </div>
+	    	<div class="row footer navbar-fixed-bottom">
 
-      <div class="row footer navbar-fixed-bottom">
+	    		<div class="col-xs-5"></div>
 
-        <div class="col-xs-5"></div>
+	    		<div class="col-xs-2">
 
-        <div class="col-xs-2">
+	    			<div class="input-group">
 
-          <div class="input-group">
+	    				<button type="button" class="btn btn-info" id="myBtn">Bir Sorunuz Mu Var?</button>
 
-            <button type="button" class="btn btn-info" id="myBtn">Bir Sorunuz Mu Var?</button>
+	    			</div>
 
-          </div>
+	    			<div class="col-xs-5"></div>
 
-          <div class="col-xs-5"></div>
+	    		</div>
 
-        </div>
+	    		<script type="text/javascript">
 
-        <script type="text/javascript">
+	    			$("#myBtn").click(function(){
+	    				$("#myModal").modal();
+	    			});
 
-          $("#myBtn").click(function(){
-            $("#myModal").modal();
-          });
+	    			var app = angular.module('modalApp', []);
+	    			app.controller('modalCtrl', function($scope) {
+	    				$scope.filters = {
+	    					search: ''
+	    				};
 
-          var app = angular.module('modalApp', []);
-          app.controller('modalCtrl', function($scope) {
-            $scope.filters = {
-              search: ''
-            };
-
-            $scope.array = [
-            {qT: 'Kredi kartımı kaybedersem ne olur?', qV: 'videos/1.mp4', aT:'0850 724 0 724 nolu çağrı merkezimize ya da İnternet Şubemize kartınızın kaybolduğunu bildirmeniz yeterli!', aV:"videos/1.1.mp4"},
-            {qT: 'Bankamatikte kalan paramın iadesi için ne yapmalıyım?', qV: 'videos/2.mp4',aT:'Bankamatikte kalan paranızın iadesi ile ilgili 0850 724 0 724 numaralı Telefon Şubemizi aradığınızda sistemimize öncelikli olarak bağlanır ve iade talebinizi hemen iletebilirsiniz.', aV:"videos/2.1.mp4"},
-            {qT: 'Kartım bankamatikte sıkışırsa ne yapabilirim?', qV: 'videos/3.mp4',aT:"Kartınız sıkıştığında Bankamatik öncelikle kartınızı geri vermeye çalışacaktır. Lütfen ekranda çıkan uyarı mesajlarını dikkatle okuyunuz ve şifrenizi tekrar girmeyiniz. Bu durumda en yakın Şubemize başvurarak ya da 0 850 724 0 724 numaralı Telefon Şubemizi aradıktan sonra “1” tuşuna basarak ulaşacağınız müşteri temsilcilerimiz aracılığı ile kartınızı kullanıma kapattırmalısınız. Kartınız Bankamatikte sıkıştığında tanımadığınız kişilerin yardım talebini kabul etmeyiniz.", aV:"videos/3.1.mp4"},
-            {qT: 'Kartımın manyetik şeridi /çipi bozuldu? Ne yapmalıyım?', qV: 'videos/4.mp4',aT:"Manyetik şeridi/çipi bozulan kartınızla birlikte şubenize uğrayarak kartınızı teslim ediniz. Kartınız yenilendikten sonra tercihiniz doğrultusunda şubenize veya dağıtım firması aracılığı ile adresinize gönderilecektir.", aV:"videos/4.1.mp4"},
-            {qT: 'İnternet şubesinden kredimi nasıl ödeyebilirim?', qV: 'videos/5.mp4', aT:"Kredilerim/Borç ödeme menüsünden kredinizi ödeyebilirsiniz.", aV:"videos/5.1.mp4"},
-            {qT: 'Bankamatikte işlem yaparken elektrik kesintisi/sistem arızası oldu. Ne yapmalıyım?', qV: 'videos/7.mp4',aT:"Elektrik kesintisi gibi durumlarda sistem kartınızı alıkoymaktadır. Bu durumda en yakın şubemize müracaat ederek ya da 0 850 724 0 724 numaralı Telefon Şubemizi aradıktan sonra “1” tuşuna basarak ulaşacağınız müşteri temsilcisinden kartınızın durumu hakkında bilgi alabilirsiniz.", aV:"videos/7.1.mp4"},
-            {qT: 'Bankamatik kartıyla bankamatikten bir gün içinde en fazla kaç TL çekilebilir?', qV: 'videos/8.mp4', aT:"Bankamatikten bir gün içinde 1500 TL çekebilirsiniz.", aV:"videos/8.1.mp4"},
-            {qT: 'İnternet bankacılığı işlemlerimin dekontunu nasıl temin edebilirim?', qV: 'videos/6.mp4', aT:"İnternet şubesinden yapılan son bir yıla ait işlem dekontlarına 'Hesaplarım | Dekontlarım ' menüsünden ulaşabilirsiniz. Diğer kanallardan gerçekleşen veya 1 yıldan eski tarihli işlemlerinizin dekontları için talebinizi şubenize iletmenizi rica ederiz.", aV:"videos/6.1.mp4"},
-            {qT: 'Herkes ihtiyaç kredisi alabilir mi?', qV: 'videos/10.mp4', aT:"Esas olarak ticaretle uğraşan kişiler dışındaki herkes İhtiyaç Kredisi kullanabilir. Ticaretle uğraşan kişilerin nakit ihtiyaçları ise “ticari kredi” kapsamında değerlendirilir.​", aV:"videos/10.1.mp4"},
-            {qT: 'Bankamatiklerden bankamatik kartımı kullanarak diğer hesaplarımdan da para çekebilir miyim?', qV: 'videos/9.mp4', aT:"Bankamatik Kartınızı kullanarak, müşteri numaranız altında tanımlı tüm TL ve döviz hesaplarınıza ulaşıp, para çekebilirsiniz. Bunun için Para Çekme -> Diğer Hesaplarımdan menüsünden işlem yapabilirsiniz.", aV:"videos/9.1.mp4"}
-            ];
-
-            $scope.hede = function(argQuestion){
-
-              
+	    				$scope.array = [
+	    				{qT: 'Kredi kartımı kaybedersem ne olur?', qV: 'videos/1.mp4', aT:'0850 724 0 724 nolu çağrı merkezimize ya da İnternet Şubemize kartınızın kaybolduğunu bildirmeniz yeterli!', aV:"videos/1.1.mp4"},
+	    				{qT: 'Bankamatikte kalan paramın iadesi için ne yapmalıyım?', qV: 'videos/2.mp4',aT:'Bankamatikte kalan paranızın iadesi ile ilgili 0850 724 0 724 numaralı Telefon Şubemizi aradığınızda sistemimize öncelikli olarak bağlanır ve iade talebinizi hemen iletebilirsiniz.', aV:"videos/2.1.mp4"},
+	    				{qT: 'Kartım bankamatikte sıkışırsa ne yapabilirim?', qV: 'videos/3.mp4',aT:"Kartınız sıkıştığında Bankamatik öncelikle kartınızı geri vermeye çalışacaktır. Lütfen ekranda çıkan uyarı mesajlarını dikkatle okuyunuz ve şifrenizi tekrar girmeyiniz. Bu durumda en yakın Şubemize başvurarak ya da 0 850 724 0 724 numaralı Telefon Şubemizi aradıktan sonra “1” tuşuna basarak ulaşacağınız müşteri temsilcilerimiz aracılığı ile kartınızı kullanıma kapattırmalısınız. Kartınız Bankamatikte sıkıştığında tanımadığınız kişilerin yardım talebini kabul etmeyiniz.", aV:"videos/3.1.mp4"},
+	    				{qT: 'Kartımın manyetik şeridi /çipi bozuldu? Ne yapmalıyım?', qV: 'videos/4.mp4',aT:"Manyetik şeridi/çipi bozulan kartınızla birlikte şubenize uğrayarak kartınızı teslim ediniz. Kartınız yenilendikten sonra tercihiniz doğrultusunda şubenize veya dağıtım firması aracılığı ile adresinize gönderilecektir.", aV:"videos/4.1.mp4"},
+	    				{qT: 'İnternet şubesinden kredimi nasıl ödeyebilirim?', qV: 'videos/5.mp4', aT:"Kredilerim/Borç ödeme menüsünden kredinizi ödeyebilirsiniz.", aV:"videos/5.1.mp4"},
+	    				{qT: 'Bankamatikte işlem yaparken elektrik kesintisi/sistem arızası oldu. Ne yapmalıyım?', qV: 'videos/7.mp4',aT:"Elektrik kesintisi gibi durumlarda sistem kartınızı alıkoymaktadır. Bu durumda en yakın şubemize müracaat ederek ya da 0 850 724 0 724 numaralı Telefon Şubemizi aradıktan sonra “1” tuşuna basarak ulaşacağınız müşteri temsilcisinden kartınızın durumu hakkında bilgi alabilirsiniz.", aV:"videos/7.1.mp4"},
+	    				{qT: 'Bankamatik kartıyla bankamatikten bir gün içinde en fazla kaç TL çekilebilir?', qV: 'videos/8.mp4', aT:"Bankamatikten bir gün içinde 1500 TL çekebilirsiniz.", aV:"videos/8.1.mp4"},
+	    				{qT: 'İnternet bankacılığı işlemlerimin dekontunu nasıl temin edebilirim?', qV: 'videos/6.mp4', aT:"İnternet şubesinden yapılan son bir yıla ait işlem dekontlarına 'Hesaplarım | Dekontlarım ' menüsünden ulaşabilirsiniz. Diğer kanallardan gerçekleşen veya 1 yıldan eski tarihli işlemlerinizin dekontları için talebinizi şubenize iletmenizi rica ederiz.", aV:"videos/6.1.mp4"},
+	    				{qT: 'Herkes ihtiyaç kredisi alabilir mi?', qV: 'videos/10.mp4', aT:"Esas olarak ticaretle uğraşan kişiler dışındaki herkes İhtiyaç Kredisi kullanabilir. Ticaretle uğraşan kişilerin nakit ihtiyaçları ise “ticari kredi” kapsamında değerlendirilir.​", aV:"videos/10.1.mp4"},
+	    				{qT: 'Bankamatiklerden bankamatik kartımı kullanarak diğer hesaplarımdan da para çekebilir miyim?', qV: 'videos/9.mp4', aT:"Bankamatik Kartınızı kullanarak, müşteri numaranız altında tanımlı tüm TL ve döviz hesaplarınıza ulaşıp, para çekebilirsiniz. Bunun için Para Çekme -> Diğer Hesaplarımdan menüsünden işlem yapabilirsiniz.", aV:"videos/9.1.mp4"}
+	    				];
 
 
-    $scope.hede = function(argQuestion){
-              angular.forEach($scope.array, function(value, key) {
-                if(argQuestion == value.qT)
-                {
-                 $("#myModal").modal('hide');
-                 $("#chatPanel").append("<div class='arrow_box'>" + $scope.array[key].qT + "</div>");
-                 $('html, body').scrollTop( $(document).height() );
+	    				$scope.hede = function(argQuestion){
+	    					angular.forEach($scope.array, function(value, key) {
+	    						if(argQuestion == value.qT)
+	    						{
+	    							$("#myModal").modal('hide');
+	    							$("#chatPanel").append("<div class='arrow_box'>" + $scope.array[key].qT + "</div>");
+	    							$('html, body').scrollTop( $(document).height() );
 
-                 setTimeout(
-                  function() 
-                  {
-                    
-                   $("#chatPanel").append("<div class='arrow_box_left'>" + $scope.array[key].aT + "<br><div class='arrow_box_left embed-responsive' style='height:160px;width:200px;'><video autoplay loop class='embed-responsive-item'><source src='" + $scope.array[key].aV + "' type='video/mp4'></video></div></div>");
-                   $('html, body').scrollTop( $(document).height() );
-                 }, 2000);
-               }
-               }); 
-            }}
-          });
-        </script>
+	    							setTimeout(
+	    								function() 
+	    								{
 
-        </html>
+	    									$("#chatPanel").append("<div class='arrow_box_left'>" + $scope.array[key].aT + "<br><div class='arrow_box_left embed-responsive' style='height:160px;width:200px;'><video autoplay loop class='embed-responsive-item'><source src='" + $scope.array[key].aV + "' type='video/mp4'></video></div></div>");
+	    									$('html, body').scrollTop( $(document).height() );
+	    								}, 2000);
+	    						}
+	    					}); 
+	    				}
+	    			});
+	    		</script>
+
+	    		</html>
